@@ -4,16 +4,16 @@ import java.time.LocalDateTime;
 
 public class Urgencia {
     private long num;
-    private LocalDateTime fechaLlegaga;
+    private LocalDateTime fechaLlegada;
     private LocalDateTime fechaAsign;
     private Persona medicoClasif;
     private Persona paciente;
     private String sintomas;
-    private byte triage;
+    private ClasifTriage triage;
 
-    public Urgencia(long num, LocalDateTime fechaLlegaga, Persona medicoClasif, Persona paciente, String sintomas, byte triage) {
+    public Urgencia(long num, LocalDateTime fechaLlegada, Persona medicoClasif, Persona paciente, String sintomas, ClasifTriage triage) {
         this.num = num;
-        this.fechaLlegaga = fechaLlegaga;
+        this.fechaLlegada = fechaLlegada;
         this.medicoClasif = medicoClasif;
         this.paciente = paciente;
         this.sintomas = sintomas;
@@ -24,55 +24,36 @@ public class Urgencia {
         return num;
     }
 
-    public void setNum(long num) {
-        this.num = num;
-    }
-
-    public LocalDateTime getFechaLlegaga() {
-        return fechaLlegaga;
-    }
-
-    public void setFechaLlegaga(LocalDateTime fechaLlegaga) {
-        this.fechaLlegaga = fechaLlegaga;
+    public LocalDateTime getFechaLlegada() {
+        return fechaLlegada;
     }
 
     public LocalDateTime getFechaAsign() {
         return fechaAsign;
     }
 
-    public void setFechaAsign(LocalDateTime fechaAsign) {
-        this.fechaAsign = fechaAsign;
-    }
-
     public Persona getMedicoClasif() {
         return medicoClasif;
-    }
-
-    public void setMedicoClasif(Persona medicoClasif) {
-        this.medicoClasif = medicoClasif;
     }
 
     public Persona getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(Persona paciente) {
-        this.paciente = paciente;
-    }
-
     public String getSintomas() {
         return sintomas;
     }
 
-    public void setSintomas(String sintomas) {
-        this.sintomas = sintomas;
-    }
-
-    public byte getTriage() {
+    public ClasifTriage getTriage() {
         return triage;
     }
 
-    public void setTriage(byte triage) {
-        this.triage = triage;
+    public void setFechaAsign(LocalDateTime fechaAsign) {
+        this.fechaAsign = fechaAsign;
+    }
+
+    @Override
+    public String toString() {
+        return "Urgencia: " + num + " -  fecha de llegada: " + fechaLlegada + " - triage: " + triage + " - médico: " + getMedicoClasif().getNombre() + " " + getMedicoClasif().getApellido() + " - paciente: " + getPaciente().getNombre() + " " + getPaciente().getApellido();
     }
 }
